@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context="com.qoobico.calculator.RegistrActivity"
+    android:background="#4f20f9">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Fill the registration form"
+        android:id="@+id/textView7"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="10dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+    android:layout_width="313dp"
+    android:layout_height="40dp"
+    android:inputType="textPersonName"
+    android:text="Name"
+    android:ems="10"
+    android:id="@+id/etName"
+    android:singleLine="true"
+    android:textSize="10dp"
+    android:layout_below="@+id/textView7"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="313dp"
+        android:layout_height="40dp"
+        android:inputType="textPersonName"
+        android:text="Age"
+        android:ems="10"
+        android:id="@+id/etAge"
+        android:singleLine="true"
+        android:textSize="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/etName"
+        android:layout_alignLeft="@+id/etName"
+        android:layout_alignStart="@+id/etName" />
+
+    <EditText
+        android:layout_width="313dp"
+        android:layout_height="40dp"
+        android:inputType="textEmailAddress"
+        android:ems="5"
+        android:text="Username"
+        android:drawablePadding="8dp"
+        android:paddingRight="8dp"
+        android:clickable="true"
+        android:singleLine="true"
+        android:id="@+id/etUsername"
+        android:layout_below="@+id/etAge"
+        android:textSize="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignLeft="@+id/etAge"
+        android:layout_alignStart="@+id/etAge"
+        android:layout_alignRight="@+id/etAge"
+        android:layout_alignEnd="@+id/etAge" />
+
+    <EditText
+        android:layout_width="313dp"
+        android:layout_height="40dp"
+        android:inputType="phone"
+        android:ems="5"
+        android:id="@+id/etPass"
+        android:singleLine="true"
+        android:text="Password"
+        android:drawablePadding="8dp"
+        android:paddingRight="8dp"
+        android:textSize="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/etUsername"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:text="Regisrter"
+        android:background="#F404AC"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/etPass"
+        android:layout_centerHorizontal="true" />
+</LinearLayout>
+

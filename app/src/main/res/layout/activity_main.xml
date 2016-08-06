@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical"
+android:layout_height="match_parent"
+android:layout_width="match_parent"
+tools:context="com.qoobico.calculator.MainActivity"
+android:background="#4f20f9">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Calculator"
+    android:textSize="45dp"
+    android:id="@+id/textView"
+    android:textAlignment="center"
+    android:textColor="#FFFFFF"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center_horizontal" />
+
+
+
+<EditText
+    android:layout_width="300dp"
+    android:layout_height="55dp"
+    android:id="@+id/etUsername"
+    android:drawableLeft="@drawable/user"
+    android:singleLine="true"
+    android:textColor="#ffffff"
+    android:layout_gravity="center_horizontal"
+    android:layout_below="@+id/textView"
+    android:layout_centerHorizontal="true" /> />
+
+<EditText
+    android:layout_width="300dp"
+    android:layout_height="55dp"
+    android:inputType="textPassword"
+    android:ems="10"
+    android:id="@+id/etPass"
+    android:drawableLeft="@drawable/locked"
+    android:singleLine="true"
+    android:textColor="#ffffff"
+    android:layout_gravity="center_horizontal"
+    android:layout_below="@+id/etUsername"
+    android:layout_centerHorizontal="true" />
+
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Forgotten Password?"
+    android:id="@+id/textView2"
+    android:textColor="#ffffff"
+    android:layout_gravity="right"
+    android:layout_below="@+id/etPass"
+    android:layout_alignRight="@+id/etPass"
+    android:layout_alignEnd="@+id/etPass" />
+
+<Button
+    android:id="@+id/btnLog"
+    android:layout_width="300dp"
+    android:layout_height="55dp"
+    android:text="Login"
+    android:textColor="#FFFFFF"
+    android:background="#F404AC"
+    android:layout_gravity="center_horizontal"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="45dp"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:text="Registration"
+    android:textColor="#ffffff"
+    android:id="@+id/tvRegisterLink"
+    android:layout_gravity="center_horizontal"
+    android:textSize="15dp"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true" />
+
+<fragment
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:name="com.qoobico.calculator.FacebookFragment"
+    android:id="@+id/fragment"
+    android:layout_above="@+id/tvRegisterLink"
+    android:layout_alignLeft="@+id/btnLog"
+    android:layout_alignStart="@+id/btnLog" />
+</RelativeLayout>

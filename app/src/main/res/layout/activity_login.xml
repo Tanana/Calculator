@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qoobico.calculator.LoginActivity"
+    android:background="#4f20f9">
+
+    <EditText
+        android:layout_width="313dp"
+        android:layout_height="40dp"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/etName"
+        android:singleLine="true"
+        android:textSize="10dp"
+        android:layout_below="@+id/textView7"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="313dp"
+        android:layout_height="40dp"
+        android:inputType="textPersonName"
+        android:text="Age"
+        android:ems="10"
+        android:id="@+id/etAge"
+        android:singleLine="true"
+        android:textSize="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/etName"
+        android:layout_alignLeft="@+id/etName"
+        android:layout_alignStart="@+id/etName" />
+
+    <EditText
+        android:layout_width="313dp"
+        android:layout_height="40dp"
+        android:inputType="textEmailAddress"
+        android:ems="5"
+        android:text="UserName"
+        android:drawablePadding="8dp"
+        android:paddingRight="8dp"
+        android:clickable="true"
+        android:singleLine="true"
+        android:id="@+id/etUsername"
+        android:layout_below="@+id/etAge"
+        android:textSize="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignLeft="@+id/etAge"
+        android:layout_alignStart="@+id/etAge"
+        android:layout_alignRight="@+id/etAge"
+        android:layout_alignEnd="@+id/etAge" />
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:background="#F404AC"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/etUsername"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+</RelativeLayout>
