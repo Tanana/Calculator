@@ -23,8 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text_details"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="93dp" />
+        android:textColor="#4f20f9"
+        android:layout_toRightOf="@+id/login_button"
+        android:layout_toEndOf="@+id/login_button" />
 
 </RelativeLayout>

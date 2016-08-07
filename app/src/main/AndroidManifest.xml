@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.qoobico.calculator">
 
@@ -29,6 +28,9 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegistrActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="c6042cbf64737bd2f4a7ca9c357b8c943d514cfd" />
     </application>
 
 </manifest>

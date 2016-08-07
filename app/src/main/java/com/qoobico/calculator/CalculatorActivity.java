@@ -15,9 +15,6 @@ public class CalculatorActivity extends TabActivity {
         // получаем TabHost
         TabHost tabHost = getTabHost();
 
-        // инициализация была выполнена в getTabHost
-        // метод setup вызывать не нужно
-
         TabHost.TabSpec tabSpec;
 
         tabSpec = tabHost.newTabSpec("tag1");

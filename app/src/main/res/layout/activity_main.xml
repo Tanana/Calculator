@@ -85,7 +85,16 @@ android:background="#4f20f9">
     android:layout_height="wrap_content"
     android:name="com.qoobico.calculator.FacebookFragment"
     android:id="@+id/fragment"
-    android:layout_above="@+id/tvRegisterLink"
+    android:layout_above="@+id/twitter_login_button"
     android:layout_alignLeft="@+id/btnLog"
     android:layout_alignStart="@+id/btnLog" />
+
+    <com.twitter.sdk.android.core.identity.TwitterLoginButton
+        android:id="@+id/twitter_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvRegisterLink"
+        android:layout_alignLeft="@+id/fragment"
+        android:layout_alignStart="@+id/fragment" />
+
 </RelativeLayout>
