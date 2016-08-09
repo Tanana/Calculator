@@ -21,16 +21,6 @@
         facebook:com_facebook_logout_text="Logout"  -->
 
 
-
-    <ImageButton
-          android:id="@+id/custom_fb_button"
-          android:layout_width="44dp"
-          android:layout_height="44dp"
-          android:layout_margin="10dp"
-          android:background="@drawable/fblogo"
-          android:layout_gravity="left|bottom"
-         />
-
     <TextView
         android:layout_width="107dp"
         android:layout_height="42dp"
@@ -42,6 +32,15 @@
         android:layout_toRightOf="@+id/login_button"
         android:layout_toEndOf="@+id/login_button"
         android:layout_marginBottom="65dp" />
+
+    <ImageButton
+          android:id="@+id/custom_fb_button"
+          android:layout_width="44dp"
+          android:layout_height="44dp"
+          android:layout_margin="10dp"
+          android:background="@drawable/fblogo"
+          android:layout_gravity="center"
+         />
 
 
 </FrameLayout>
