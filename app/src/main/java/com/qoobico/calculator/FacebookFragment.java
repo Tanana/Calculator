@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -21,7 +20,7 @@ import com.facebook.login.widget.LoginButton;
 
 
 public class FacebookFragment extends Fragment {
-    private TextView mTextDetails;
+ //   private TextView mTextDetails;
     private CallbackManager mcallbackManager;
 
 
@@ -30,7 +29,7 @@ public class FacebookFragment extends Fragment {
         public void onSuccess(LoginResult loginResult) {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
-            displayWelcomeMassage(profile);
+      //      displayWelcomeMassage(profile);
 
         }
 
@@ -63,12 +62,12 @@ public class FacebookFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_facebook, container, false);
     }
 
-    private void displayWelcomeMassage(Profile profile){
+/* private void displayWelcomeMassage(Profile profile){
         if (profile != null){
             mTextDetails.setText("Welcome " + profile.getName());
         }
 
-    }
+    } */
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -93,7 +92,7 @@ public class FacebookFragment extends Fragment {
         login_button.setReadPermissions("user_friends");
         login_button.setFragment(this);
         login_button.registerCallback(mcallbackManager,mCallback);
-        mTextDetails = (TextView)view.findViewById(R.id.text_details);
+      //  mTextDetails = (TextView)view.findViewById(R.id.text_details);
 
     }
 
@@ -102,7 +101,7 @@ public class FacebookFragment extends Fragment {
     public void onResume() {
         super.onResume();
         Profile profile = Profile.getCurrentProfile();
-        displayWelcomeMassage(profile);
+   //     displayWelcomeMassage(profile);
     }
 
     @Override

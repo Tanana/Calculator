@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int RC_SIGN_IN = 9001;
     private boolean isAuthenticated = false;
     SignInButton sign_in_button;
+    ImageButton custom_goog_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,11 +96,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 //google+
-        sign_in_button = (SignInButton) findViewById(R.id.sign_in_button);
-        sign_in_button.setOnClickListener(this);
-        tv_username = (TextView) findViewById(R.id.tv_username);
+        //   sign_in_button = (SignInButton) findViewById(R.id.sign_in_button);
+        //    sign_in_button.setOnClickListener(this);
+        //   tv_username = (TextView) findViewById(R.id.tv_username);
+
+
+        custom_goog_btn = (ImageButton) findViewById(R.id.custom_goog_btn);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .addApi(AppIndex.API).build();
+
+        custom_goog_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+
+            }
+        });
+    }
+
+
+   /*     GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
@@ -111,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .addApi(AppIndex.API).build();
         setGooglePlusButtonText(this.sign_in_button, "Sign in");
     }
-
+ */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -140,15 +163,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
 
-            case R.id.sign_in_button:
+         case R.id.custom_goog_btn:
                 if (!isAuthenticated) {
                     signIn();
                     //this.sign_in_button.setVisibility(View.INVISIBLE);
-                    setGooglePlusButtonText(this.sign_in_button, "Sign out");
+             //       setGooglePlusButtonText(this.custom_goog_btn, "Sign out");
                     isAuthenticated = true;
                 } else {
                     signOut();
-                    setGooglePlusButtonText(this.sign_in_button, "Sign in");
+            //        setGooglePlusButtonText(this.custom_goog_btn, "Sign in");
                     isAuthenticated = false;
                 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,11 +17,10 @@
         android:visibility="gone"
         android:textColor="#ffffff"
         />
-   <!--     facebook:com_facebook_login_text="LOGIN"
-        facebook:com_facebook_logout_text="Logout"  -->
 
 
-    <TextView
+
+ <!--   <TextView
         android:layout_width="107dp"
         android:layout_height="42dp"
         android:id="@+id/text_details"
@@ -32,15 +31,15 @@
         android:layout_toRightOf="@+id/login_button"
         android:layout_toEndOf="@+id/login_button"
         android:layout_marginBottom="65dp" />
-
+-->
     <ImageButton
           android:id="@+id/custom_fb_button"
           android:layout_width="44dp"
           android:layout_height="44dp"
-          android:layout_margin="10dp"
-          android:background="@drawable/fblogo"
-          android:layout_gravity="center"
-         />
+        android:background="@drawable/fblogo"
+          android:layout_gravity="left|bottom"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 
-</FrameLayout>
+</RelativeLayout>
