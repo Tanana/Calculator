@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="FacebookLoginButton">
+        <item name="android:background">#4f20f9</item>
+        <item name="android:text">@string/com_facebook_device_auth_instructions</item>
+        <item name="android:width">45dp</item>
+        <item name="android:height">45dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
 </resources>

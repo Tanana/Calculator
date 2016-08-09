@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -19,18 +20,11 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link FacebookFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link FacebookFragment#newInstance} factory method to
- * create an instance of this fragment.
- *
- */
 public class FacebookFragment extends Fragment {
     private TextView mTextDetails;
     private CallbackManager mcallbackManager;
+
+
     private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
@@ -79,14 +73,30 @@ public class FacebookFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LoginButton loginButton = (LoginButton)view.findViewById(R.id.login_button);
-        loginButton.setReadPermissions("user_friends");
-        loginButton.setFragment(this);
-        loginButton.registerCallback(mcallbackManager,mCallback);
 
+      //  ImageButton mFacebook = (ImageButton) view.findViewById(R.id.custom_fb_button);
+  //   LoginButton loginButton = (LoginButton) view.findViewById(R.id.login_button);
+
+       ImageButton mFacebook = (ImageButton) view.findViewById(R.id.custom_fb_button);
+        final LoginButton login_button = (LoginButton) view.findViewById(R.id.login_button);
+
+      mFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View v) {
+                login_button.performClick();
+           }
+      });
+
+
+
+
+        login_button.setReadPermissions("user_friends");
+        login_button.setFragment(this);
+        login_button.registerCallback(mcallbackManager,mCallback);
         mTextDetails = (TextView)view.findViewById(R.id.text_details);
 
     }
+
 
     @Override
     public void onResume() {
