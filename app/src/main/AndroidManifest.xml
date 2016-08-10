@@ -47,6 +47,7 @@
         <activity android:name=".PalindromActivity"></activity>
         <activity android:name=".LogoutActivity" />
         <activity android:name=".RegistrActivity"></activity>
+        <activity android:name=".ForgorPassActivity"></activity>
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="c6042cbf64737bd2f4a7ca9c357b8c943d514cfd" />

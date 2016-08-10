@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //regist
     Button btnLog;
     EditText etUsername, etPass;
-    TextView tvRegisterLink;
+    TextView tvRegisterLink,tvForgPass;
 
     //integr twitt
     TwitterLoginButton loginButton;
@@ -70,9 +70,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etUsername = (EditText) findViewById(R.id.etLoginName);
         etPass = (EditText) findViewById(R.id.etPass);
         btnLog = (Button) findViewById(R.id.btnLog);
+        tvForgPass = (TextView) findViewById(R.id.tvForgPass);
         tvRegisterLink = (TextView) findViewById(R.id.tvRegisterLink);
         btnLog.setOnClickListener(this);
         tvRegisterLink.setOnClickListener(this);
+        tvForgPass.setOnClickListener(this);
+
         dbHelper = new DbHelper(this);
 //twitter
         TwitterAuthConfig authConfig = new TwitterAuthConfig(this.CONSUMER_KEY, this.CONSUMER_SECRET);
@@ -198,7 +201,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
+            case R.id.tvForgPass:
+                startActivity(new Intent(this, ForgorPassActivity.class));
 
+                break;
         }
     }
 
