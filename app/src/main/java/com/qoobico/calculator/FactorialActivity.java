@@ -16,6 +16,7 @@ public class FactorialActivity extends Activity implements View.OnClickListener 
     Button btnCalcFactorial;
     TextView tvResFactorial;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,8 @@ public class FactorialActivity extends Activity implements View.OnClickListener 
         btnCalcFactorial = (Button) findViewById(R.id.btnCalcFactorial);
         tvResFactorial = (TextView) findViewById(R.id.tvResFactorial);
         btnCalcFactorial.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -37,6 +40,7 @@ public class FactorialActivity extends Activity implements View.OnClickListener 
                 }else {
                     tvResFactorial.setText(" = " +summOfFactorialDigits(etNumForFactorial.getText().toString()));
                 }
+
         }
     }
     public String summOfFactorialDigits(String input) {

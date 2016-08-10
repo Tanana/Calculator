@@ -25,6 +25,9 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.qoobico.calculator.db.DbHelper;
+import com.qoobico.calculator.db.DbOperations;
+import com.qoobico.calculator.db.UserModel;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -51,12 +54,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //integr google+
     TextView tv_username;
-    GoogleApiClient mGoogleApiClient;
+   static GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
     private boolean isAuthenticated = false;
     SignInButton sign_in_button;
     ImageButton custom_goog_btn;
-
+    DbHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvRegisterLink = (TextView) findViewById(R.id.tvRegisterLink);
         btnLog.setOnClickListener(this);
         tvRegisterLink.setOnClickListener(this);
-
+        dbHelper = new DbHelper(this);
 //twitter
         TwitterAuthConfig authConfig = new TwitterAuthConfig(this.CONSUMER_KEY, this.CONSUMER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
@@ -78,12 +81,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ImageButton customLoginButton = (ImageButton) findViewById(R.id.twitter_custom_button);
         customLoginButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
                 client.authorize(MainActivity.this, new Callback<TwitterSession>() {
                     @Override
                     public void success(Result<TwitterSession> twitterSessionResult) {
                         Toast.makeText(MainActivity.this, "success", Toast.LENGTH_SHORT).show();
+
+
                     }
 
                     @Override
@@ -91,7 +98,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Toast.makeText(MainActivity.this, "failure", Toast.LENGTH_SHORT).show();
                     }
                 });
+
             }
+
         });
 
 
@@ -116,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 signIn();
-
+                startActivity(new Intent(MainActivity.this, CalculatorActivity.class));
             }
         });
     }
@@ -140,6 +149,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
         //tw
         client.onActivityResult(requestCode, resultCode, data);
+        startActivity(new Intent(this, CalculatorActivity.class));
+
         //g+
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
@@ -155,6 +166,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (view.getId()) {
             case R.id.btnLog:
+                UserModel user = new UserModel();
+                user.setLogin(etUsername.getText().toString());
+                user.setPassword(etPass.getText().toString());
+                if(DbOperations.checkUserForLogin(user,dbHelper)){
+                    startActivity(new Intent(this, CalculatorActivity.class));
+                    Toast.makeText(this, "Welcome",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, "Incorrect login or password", Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.tvRegisterLink:
@@ -166,8 +186,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          case R.id.custom_goog_btn:
                 if (!isAuthenticated) {
                     signIn();
-                    //this.sign_in_button.setVisibility(View.INVISIBLE);
+                    //this.swign_in_button.setVisibility(View.INVISIBLE);
              //       setGooglePlusButtonText(this.custom_goog_btn, "Sign out");
+                startActivity(new Intent(this, CalculatorActivity.class));
+
                     isAuthenticated = true;
                 } else {
                     signOut();
@@ -176,6 +198,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
+
         }
     }
 
@@ -187,6 +210,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        Toast.makeText(this,"You loged in with google+",Toast.LENGTH_SHORT).show();
     }
 
     private void signOut() {
@@ -197,6 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         tv_username.setText("");
                     }
                 });
+        Toast.makeText(this,"You have loged out from google+",Toast.LENGTH_SHORT).show();
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
@@ -204,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-            tv_username.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
+//            tv_username.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
 
         } else {
             // Signed out, show unauthenticated UI.

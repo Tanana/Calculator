@@ -21,7 +21,18 @@
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
+                android:layout_height="461dp">
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/qwer"
+                    android:layout_gravity="center"
+                    android:text="LOGOUT" />
             </FrameLayout>
         </LinearLayout>
     </TabHost>

@@ -83,6 +83,8 @@ public class FacebookFragment extends Fragment {
             @Override
            public void onClick(View v) {
                 login_button.performClick();
+                Intent redirect=new Intent(getActivity(),CalculatorActivity.class);
+                getActivity().startActivity(redirect);
            }
       });
 
@@ -101,6 +103,7 @@ public class FacebookFragment extends Fragment {
     public void onResume() {
         super.onResume();
         Profile profile = Profile.getCurrentProfile();
+
    //     displayWelcomeMassage(profile);
     }
 
