@@ -41,7 +41,11 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".CalculatorActivity"></activity>
+        <activity android:name=".FactorialActivity"></activity>
+        <activity android:name=".PairsActivity"></activity>
+        <activity android:name=".PalindromActivity"></activity>
+        <activity android:name=".LogoutActivity" />
         <activity android:name=".RegistrActivity"></activity>
         <meta-data
             android:name="io.fabric.ApiKey"

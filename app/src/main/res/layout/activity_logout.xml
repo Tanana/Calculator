@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context="com.qoobico.calculator.RegistrActivity"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LogoutActivity"
     android:background="#4f20f9">
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Fill the registration form"
-        android:id="@+id/textView7"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:layout_margin="15dp"
-        android:layout_gravity="center_horizontal" />
 
     <EditText
         android:layout_width="275dp"
@@ -51,23 +35,13 @@
         android:layout_x="55dp"
         android:layout_y="125dp" />
 
-    <EditText
-        android:layout_width="275dp"
-        android:layout_height="55dp"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/etEmail"
-        android:textColor="#ffffff"
-        android:drawableLeft="@drawable/mail"
-        android:singleLine="true"
-        android:layout_gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnLogout"
         android:layout_width="275dp"
         android:layout_height="55dp"
         android:layout_margin="25dp"
-        android:text="Regisrter"
+        android:text="Logout"
         android:background="#F404AC"
         android:textColor="#ffffff"
         android:layout_below="@+id/etPass"
@@ -75,5 +49,7 @@
         android:layout_gravity="center_horizontal" />
 
 
-</LinearLayout>
 
+
+
+</RelativeLayout>

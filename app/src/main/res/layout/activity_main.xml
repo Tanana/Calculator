@@ -26,7 +26,7 @@ android:background="#4f20f9">
 <EditText
     android:layout_width="275dp"
     android:layout_height="55dp"
-    android:id="@+id/etUsername"
+    android:id="@+id/etLoginName"
     android:drawableLeft="@drawable/user"
     android:singleLine="true"
     android:textColor="#ffffff"
@@ -46,7 +46,7 @@ android:background="#4f20f9">
     android:singleLine="true"
     android:textColor="#ffffff"
     android:layout_gravity="center_horizontal"
-    android:layout_below="@+id/etUsername"
+    android:layout_below="@+id/etLoginName"
     android:layout_centerHorizontal="true"
     android:layout_x="55dp"
     android:layout_y="125dp" />
@@ -189,16 +189,14 @@ android:background="#4f20f9">
        android:text="Login with Facebook"
        android:id="@+id/textView4"
        android:textAlignment="center"
-       android:layout_alignLeft="@+id/fragment"
-       android:layout_alignStart="@+id/fragment"
        android:textColor="#ffffff"
        android:textSize="10dp"
 
-       android:layout_above="@+id/tvRegisterLink"
-       android:layout_alignRight="@+id/fragment"
-       android:layout_alignEnd="@+id/fragment"
        android:layout_x="55dp"
-       android:layout_y="410dp" />
+       android:layout_y="410dp"
+       android:layout_above="@+id/tvRegisterLink"
+       android:layout_alignLeft="@+id/fragment"
+       android:layout_alignStart="@+id/fragment" />
 
    <View
        android:id="@+id/separator1"

@@ -7,18 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
-    EditText etName, etAge, etUsername;
+public class LogoutActivity extends AppCompatActivity implements View.OnClickListener{
+    EditText etLoginName, etPass;
     Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_logout);
 
-        etName = (EditText) findViewById(R.id.etName);
-        etAge = (EditText) findViewById(R.id.etAge);
-        etUsername = (EditText) findViewById(R.id.etUsername);
+        etLoginName = (EditText) findViewById(R.id.etLoginName);
+        etPass = (EditText) findViewById(R.id.etPass);
         btnLogout = (Button) findViewById(R.id.btnLogout);
 
         btnLogout.setOnClickListener(this);

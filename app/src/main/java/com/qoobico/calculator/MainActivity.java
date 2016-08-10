@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
 
-        etUsername = (EditText) findViewById(R.id.etUsername);
+        etUsername = (EditText) findViewById(R.id.etLoginName);
         etPass = (EditText) findViewById(R.id.etPass);
         btnLog = (Button) findViewById(R.id.btnLog);
         tvRegisterLink = (TextView) findViewById(R.id.tvRegisterLink);
