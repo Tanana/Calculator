@@ -93,7 +93,7 @@ android:background="#4f20f9">
     android:layout_x="155dp"
     android:layout_y="460dp" />
 
-<fragment
+<!--<fragment
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:name="com.qoobico.calculator.FacebookFragment"
@@ -102,7 +102,7 @@ android:background="#4f20f9">
     android:layout_alignLeft="@+id/btnLog"
     android:layout_alignStart="@+id/btnLog"
     android:layout_x="62dp"
-    android:layout_y="358dp" />
+    android:layout_y="358dp" /> -->
 
 
 
@@ -111,7 +111,6 @@ android:background="#4f20f9">
        android:textColor="#ffffff"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_above="@+id/custom_goog_btn"
        android:layout_marginBottom="50dp"
        android:layout_alignRight="@+id/tvForgPass"
        android:layout_alignEnd="@+id/tvForgPass"
@@ -120,18 +119,8 @@ android:background="#4f20f9">
        android:layout_gravity="right" />
 
 
-  <!-- <com.google.android.gms.common.SignInButton
-       android:id="@+id/sign_in_button"
-       android:layout_width="120dp"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/btnLog"
-       android:layout_centerHorizontal="true"
-       android:layout_marginTop="67dp" />   -->
 
-
-
-
-   <ImageButton
+ <!--  <ImageButton
        android:id="@+id/custom_goog_btn"
        android:layout_width="40dp"
        android:layout_height="40dp"
@@ -142,12 +131,6 @@ android:background="#4f20f9">
        android:layout_toStartOf="@+id/tvForgPass"
        android:layout_x="163dp"
        android:layout_y="363dp" />
-
-
-
-
-
-
 
 
 <ImageButton
@@ -161,80 +144,126 @@ android:background="#4f20f9">
     android:layout_alignLeft="@+id/textView3"
     android:layout_alignStart="@+id/textView3"
     android:layout_x="287dp"
-    android:layout_y="355dp"></ImageButton>
+    android:layout_y="355dp"></ImageButton>   -->
 
-   <TextView
-       android:layout_width="64dp"
-       android:layout_height="34dp"
-       android:textAppearance="?android:attr/textAppearanceSmall"
-       android:text="Login with Twitter"
-       android:id="@+id/textView3"
-       android:textAlignment="center"
-       android:textColor="#ffffff"
-       android:layout_gravity="right"
-       android:textSize="10dp"
 
-       android:layout_below="@+id/twitter_custom_button"
-       android:layout_toRightOf="@+id/textView"
+
+
+
+   <RelativeLayout
+       android:layout_width="275dp"
+       android:layout_height="150dp"
+       android:orientation="horizontal"
+       android:layout_below="@+id/btnLog"
        android:layout_alignRight="@+id/tv_username"
        android:layout_alignEnd="@+id/tv_username"
-       android:layout_above="@+id/textView4"
-       android:layout_x="280dp"
-       android:layout_y="410dp" />
+       android:id="@+id/relativeLayout">
 
-   <TextView
-       android:layout_width="65dp"
-       android:layout_height="38dp"
-       android:textAppearance="?android:attr/textAppearanceSmall"
-       android:text="Login with Facebook"
-       android:id="@+id/textView4"
-       android:textAlignment="center"
-       android:textColor="#ffffff"
-       android:textSize="10dp"
 
-       android:layout_x="55dp"
-       android:layout_y="410dp"
-       android:layout_above="@+id/tvRegisterLink"
-       android:layout_alignLeft="@+id/fragment"
-       android:layout_alignStart="@+id/fragment" />
+      <fragment
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:name="com.qoobico.calculator.FacebookFragment"
+          android:id="@+id/fragment"
+          android:layout_x="62dp"
+          android:layout_y="358dp"
+          android:layout_alignTop="@+id/separator2"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true" />
 
-   <View
-       android:id="@+id/separator1"
-       android:layout_width="1px"
-       android:layout_height="80dp"
-       android:background="#ffffff"
-       android:layout_alignTop="@+id/fragment"
-       android:layout_toLeftOf="@+id/textView5"
-       android:layout_toStartOf="@+id/textView5"
-       android:layout_x="245dp"
-       android:layout_y="355dp" />
-   <View
-       android:id="@+id/separator2"
-       android:layout_width="1px"
-       android:layout_height="80dp"
-       android:background="#ffffff"
-       android:layout_below="@+id/tv_username"
-       android:layout_toRightOf="@+id/tvRegisterLink"
-       android:layout_toEndOf="@+id/tvRegisterLink"
-       android:layout_x="137dp"
-       android:layout_y="355dp" />
 
-   <TextView
-       android:layout_width="57dp"
-       android:layout_height="44dp"
-       android:textAppearance="?android:attr/textAppearanceSmall"
-       android:text="Login with Google"
-       android:id="@+id/textView5"
-       android:textColor="#ffffff"
-       android:textSize="10dp"
-       android:textAlignment="center"
-       android:layout_alignBottom="@+id/textView4"
-       android:layout_alignLeft="@+id/tvRegisterLink"
-       android:layout_alignStart="@+id/tvRegisterLink"
-       android:layout_below="@+id/twitter_custom_button"
-       android:layout_alignRight="@+id/custom_goog_btn"
-       android:layout_alignEnd="@+id/custom_goog_btn"
-       android:layout_x="158dp"
-       android:layout_y="410dp" />
+         <TextView
+             android:layout_width="65dp"
+             android:layout_height="38dp"
+             android:textAppearance="?android:attr/textAppearanceSmall"
+             android:text="Login with Google"
+             android:id="@+id/textView5"
+             android:textColor="#ffffff"
+             android:textSize="10dp"
+             android:textAlignment="center"
+             android:layout_x="158dp"
+             android:layout_y="410dp"
+             android:layout_alignBottom="@+id/separator2"
+             android:layout_centerHorizontal="true" />
+
+         <ImageButton
+         android:id="@+id/twitter_custom_button"
+         android:layout_width="40dp"
+         android:layout_height="40dp"
+         android:background="@drawable/twitter"
+         android:layout_x="287dp"
+         android:layout_y="355dp"
+             android:layout_alignTop="@+id/separator1"
+             android:layout_alignRight="@+id/textView3"
+             android:layout_alignEnd="@+id/textView3"></ImageButton>
+
+
+      <ImageButton
+          android:id="@+id/custom_goog_btn"
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:background="@drawable/google"
+          android:layout_x="163dp"
+          android:layout_y="363dp"
+          android:layout_gravity="center"
+          android:layout_alignTop="@+id/separator1"
+          android:layout_alignRight="@+id/textView5"
+          android:layout_alignEnd="@+id/textView5" />
+
+      <TextView
+          android:layout_width="65dp"
+          android:layout_height="38dp"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+          android:text="Login with Twitter"
+          android:id="@+id/textView3"
+          android:textAlignment="center"
+          android:textColor="#ffffff"
+          android:layout_gravity="right|bottom"
+          android:textSize="10dp"
+          android:layout_x="280dp"
+          android:layout_y="410dp"
+          android:layout_alignBottom="@+id/separator1"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentEnd="true" />
+
+      <View
+          android:id="@+id/separator2"
+          android:layout_width="1px"
+          android:layout_height="100dp"
+          android:background="#ffffff"
+          android:layout_x="137dp"
+          android:layout_y="355dp"
+          android:layout_gravity="right|center_vertical"
+          android:layout_centerVertical="true"
+          android:layout_toLeftOf="@+id/textView5"
+          android:layout_toStartOf="@+id/textView5" />
+
+
+      <View
+          android:id="@+id/separator1"
+          android:layout_width="1px"
+          android:layout_height="100dp"
+          android:background="#ffffff"
+          android:layout_x="245dp"
+          android:layout_y="355dp"
+          android:layout_gravity="right|top"
+          android:layout_alignTop="@+id/separator2"
+          android:layout_alignLeft="@+id/textView3"
+          android:layout_alignStart="@+id/textView3" />
+
+      <TextView
+          android:layout_width="75dp"
+          android:layout_height="30dp"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+          android:text="Login with Facebook"
+          android:id="@+id/textView4"
+          android:textAlignment="center"
+          android:textColor="#ffffff"
+          android:textSize="10dp"
+          android:layout_alignBaseline="@+id/textView5"
+          android:layout_alignBottom="@+id/textView5"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true" />
+   </RelativeLayout>
 
 </RelativeLayout>

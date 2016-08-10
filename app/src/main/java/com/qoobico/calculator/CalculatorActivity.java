@@ -72,7 +72,8 @@ Button buttonLogOut;
                 }catch(IllegalStateException e){
 
                 }
-                startActivity(new Intent(this, MainActivity.class));
+                finish();
+
 
                 Toast.makeText(this,"Loged out successfuly!", Toast.LENGTH_SHORT);
                 break;
