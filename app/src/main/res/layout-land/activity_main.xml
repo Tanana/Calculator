@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#4f20f9">
+
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:id="@+id/etUsername"
+        android:drawableLeft="@drawable/user"
+        android:singleLine="true"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_vertical"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_x="150dp"
+        android:layout_y="60dp" /> />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculator"
+        android:textSize="45dp"
+        android:id="@+id/textView"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_x="190dp"
+        android:layout_y="4dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/etPass"
+        android:drawableLeft="@drawable/locked"
+        android:singleLine="true"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/etUsername"
+        android:layout_centerHorizontal="true"
+        android:layout_x="150dp"
+        android:layout_y="110dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgotten Password?"
+        android:id="@+id/textView2"
+        android:textColor="#ffffff"
+        android:layout_gravity="right"
+        android:layout_below="@+id/etPass"
+        android:layout_alignRight="@+id/etPass"
+        android:layout_alignEnd="@+id/etPass"
+        android:layout_x="327dp"
+        android:layout_y="175dp" />
+
+
+    <Button
+        android:id="@+id/btnLog"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:background="#F404AC"
+        android:layout_x="150dp"
+        android:layout_y="200dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Registration"
+        android:textColor="#ffffff"
+        android:layout_margin="10dp"
+        android:id="@+id/tvRegisterLink"
+        android:layout_gravity="center_horizontal"
+        android:textSize="15dp"
+        android:layout_x="270dp"
+        android:layout_y="260dp"
+        android:layout_below="@+id/btnLog"
+        android:layout_centerHorizontal="true" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.qoobico.calculator.FacebookFragment"
+        android:id="@+id/fragment"
+        android:layout_x="517dp"
+        android:layout_y="33dp"
+        android:layout_alignTop="@+id/tv_username"
+        android:layout_alignLeft="@+id/custom_goog_btn"
+        android:layout_alignStart="@+id/custom_goog_btn" />
+        " />
+
+
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/custom_goog_btn"
+        android:layout_marginBottom="50dp"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_toEndOf="@+id/btnLog"
+        android:layout_toRightOf="@+id/btnLog"
+        android:layout_gravity="right" />
+
+
+    <!-- <com.google.android.gms.common.SignInButton
+         android:id="@+id/sign_in_button"
+         android:layout_width="120dp"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/btnLog"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="67dp" />   -->
+
+
+
+
+    <ImageButton
+        android:id="@+id/custom_goog_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/google"
+        android:layout_x="517dp"
+        android:layout_y="212dp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/twitter_custom_button"
+        android:layout_alignStart="@+id/twitter_custom_button" />
+
+
+
+
+
+
+
+
+    <ImageButton
+        android:id="@+id/twitter_custom_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/twitter"
+        android:layout_gravity="right"
+
+        android:layout_x="517dp"
+        android:layout_y="130dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginStart="41dp"
+        android:layout_alignBottom="@+id/btnLog"
+        android:layout_toRightOf="@+id/tv_username"
+        android:layout_toEndOf="@+id/tv_username"></ImageButton>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Login with social network"
+        android:id="@+id/textView6"
+        android:textSize="11dp"
+        android:textColor="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/fragment"
+        android:layout_alignRight="@+id/fragment"
+        android:layout_alignEnd="@+id/fragment"
+        android:layout_alignLeft="@+id/fragment"
+        android:layout_alignStart="@+id/fragment" />
+
+</RelativeLayout>

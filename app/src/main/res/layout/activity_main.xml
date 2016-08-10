@@ -17,12 +17,14 @@ android:background="#4f20f9">
     android:textColor="#FFFFFF"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
-    android:layout_gravity="center_horizontal" />
+    android:layout_gravity="center_horizontal"
+    android:layout_x="91dp"
+    android:layout_y="20dp" />
 
 
 
 <EditText
-    android:layout_width="300dp"
+    android:layout_width="275dp"
     android:layout_height="55dp"
     android:id="@+id/etUsername"
     android:drawableLeft="@drawable/user"
@@ -30,10 +32,12 @@ android:background="#4f20f9">
     android:textColor="#ffffff"
     android:layout_gravity="center_horizontal"
     android:layout_below="@+id/textView"
-    android:layout_centerHorizontal="true" /> />
+    android:layout_centerHorizontal="true"
+    android:layout_x="55dp"
+    android:layout_y="75dp" /> />
 
 <EditText
-    android:layout_width="300dp"
+    android:layout_width="275dp"
     android:layout_height="55dp"
     android:inputType="textPassword"
     android:ems="10"
@@ -43,7 +47,9 @@ android:background="#4f20f9">
     android:textColor="#ffffff"
     android:layout_gravity="center_horizontal"
     android:layout_below="@+id/etUsername"
-    android:layout_centerHorizontal="true" />
+    android:layout_centerHorizontal="true"
+    android:layout_x="55dp"
+    android:layout_y="125dp" />
 
 
 <TextView
@@ -55,19 +61,23 @@ android:background="#4f20f9">
     android:layout_gravity="right"
     android:layout_below="@+id/etPass"
     android:layout_alignRight="@+id/etPass"
-    android:layout_alignEnd="@+id/etPass" />
+    android:layout_alignEnd="@+id/etPass"
+    android:layout_x="210dp"
+    android:layout_y="194dp" />
 
 
 <Button
     android:id="@+id/btnLog"
-    android:layout_width="300dp"
+    android:layout_width="275dp"
     android:layout_height="55dp"
     android:text="Login"
     android:textColor="#FFFFFF"
     android:background="#F404AC"
     android:layout_gravity="center_horizontal"
     android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true" />
+    android:layout_centerHorizontal="true"
+    android:layout_x="55dp"
+    android:layout_y="242dp" />
 
 <TextView
     android:layout_width="wrap_content"
@@ -79,7 +89,9 @@ android:background="#4f20f9">
     android:layout_gravity="center_horizontal"
     android:textSize="15dp"
     android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true" />
+    android:layout_centerHorizontal="true"
+    android:layout_x="155dp"
+    android:layout_y="460dp" />
 
 <fragment
     android:layout_width="wrap_content"
@@ -88,7 +100,9 @@ android:background="#4f20f9">
     android:id="@+id/fragment"
     android:layout_below="@+id/tv_username"
     android:layout_alignLeft="@+id/btnLog"
-    android:layout_alignStart="@+id/btnLog" />
+    android:layout_alignStart="@+id/btnLog"
+    android:layout_x="62dp"
+    android:layout_y="358dp" />
 
 
 
@@ -119,13 +133,15 @@ android:background="#4f20f9">
 
    <ImageButton
        android:id="@+id/custom_goog_btn"
-       android:layout_width="45dp"
-       android:layout_height="45dp"
+       android:layout_width="40dp"
+       android:layout_height="40dp"
        android:background="@drawable/google"
        android:layout_marginBottom="52dp"
        android:layout_above="@+id/textView4"
        android:layout_toLeftOf="@+id/textView2"
-       android:layout_toStartOf="@+id/textView2" />
+       android:layout_toStartOf="@+id/textView2"
+       android:layout_x="163dp"
+       android:layout_y="363dp" />
 
 
 
@@ -136,18 +152,20 @@ android:background="#4f20f9">
 
 <ImageButton
         android:id="@+id/twitter_custom_button"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
        android:background="@drawable/twitter"
     android:layout_gravity="right"
 
     android:layout_below="@+id/tv_username"
     android:layout_alignLeft="@+id/textView3"
-    android:layout_alignStart="@+id/textView3"></ImageButton>
+    android:layout_alignStart="@+id/textView3"
+    android:layout_x="287dp"
+    android:layout_y="355dp"></ImageButton>
 
    <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
+       android:layout_width="64dp"
+       android:layout_height="34dp"
        android:textAppearance="?android:attr/textAppearanceSmall"
        android:text="Login with Twitter"
        android:id="@+id/textView3"
@@ -160,11 +178,13 @@ android:background="#4f20f9">
        android:layout_toRightOf="@+id/textView"
        android:layout_alignRight="@+id/tv_username"
        android:layout_alignEnd="@+id/tv_username"
-       android:layout_above="@+id/textView4" />
+       android:layout_above="@+id/textView4"
+       android:layout_x="280dp"
+       android:layout_y="410dp" />
 
    <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
+       android:layout_width="65dp"
+       android:layout_height="38dp"
        android:textAppearance="?android:attr/textAppearanceSmall"
        android:text="Login with Facebook"
        android:id="@+id/textView4"
@@ -176,7 +196,9 @@ android:background="#4f20f9">
 
        android:layout_above="@+id/tvRegisterLink"
        android:layout_alignRight="@+id/fragment"
-       android:layout_alignEnd="@+id/fragment" />
+       android:layout_alignEnd="@+id/fragment"
+       android:layout_x="55dp"
+       android:layout_y="410dp" />
 
    <View
        android:id="@+id/separator1"
@@ -185,7 +207,9 @@ android:background="#4f20f9">
        android:background="#ffffff"
        android:layout_alignTop="@+id/fragment"
        android:layout_toLeftOf="@+id/textView5"
-       android:layout_toStartOf="@+id/textView5" />
+       android:layout_toStartOf="@+id/textView5"
+       android:layout_x="245dp"
+       android:layout_y="355dp" />
    <View
        android:id="@+id/separator2"
        android:layout_width="1px"
@@ -193,11 +217,13 @@ android:background="#4f20f9">
        android:background="#ffffff"
        android:layout_below="@+id/tv_username"
        android:layout_toRightOf="@+id/tvRegisterLink"
-       android:layout_toEndOf="@+id/tvRegisterLink" />
+       android:layout_toEndOf="@+id/tvRegisterLink"
+       android:layout_x="137dp"
+       android:layout_y="355dp" />
 
    <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
+       android:layout_width="57dp"
+       android:layout_height="44dp"
        android:textAppearance="?android:attr/textAppearanceSmall"
        android:text="Login with Google"
        android:id="@+id/textView5"
@@ -209,6 +235,8 @@ android:background="#4f20f9">
        android:layout_alignStart="@+id/tvRegisterLink"
        android:layout_below="@+id/twitter_custom_button"
        android:layout_alignRight="@+id/custom_goog_btn"
-       android:layout_alignEnd="@+id/custom_goog_btn" />
+       android:layout_alignEnd="@+id/custom_goog_btn"
+       android:layout_x="158dp"
+       android:layout_y="410dp" />
 
 </RelativeLayout>
