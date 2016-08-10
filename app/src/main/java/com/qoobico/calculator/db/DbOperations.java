@@ -39,6 +39,48 @@ public class DbOperations {
     }
 
 
+    public static String checkEmail(UserModel user, DbHelper dbHelper){
+        String password="";
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor c = db.query("user", null, null, null, null, null, null);
+        if (c.moveToFirst()) {
+            int emailColIndex = c.getColumnIndex("email");
+            int passColIndex = c.getColumnIndex("password");
+            do {
+                if (c.getString(emailColIndex).equals(user.getEmail())) {
+                    password=c.getString(passColIndex);
+                    c.close();
+                        return password;
+                }
+
+            } while (c.moveToNext());
+        }
+        c.close();
+
+        return "";
+    }
+
+
+    public static boolean checkLogin(UserModel user, DbHelper dbHelper){
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor c = db.query("user", null, null, null, null, null, null);
+        if (c.moveToFirst()) {
+            int loginColIndex = c.getColumnIndex("login");
+            do {
+                if (c.getString(loginColIndex).equals(user.getLogin())) {
+                    c.close();
+                    return true;
+                }
+
+            } while (c.moveToNext());
+        }
+        c.close();
+
+        return false;
+    }
+
+
     public static boolean checkUserForLogin(UserModel user, DbHelper dbHelper) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor c = db.query("user", null, null, null, null, null, null);

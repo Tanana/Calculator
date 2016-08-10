@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void success(Result<TwitterSession> twitterSessionResult) {
                         Toast.makeText(MainActivity.this, "success", Toast.LENGTH_SHORT).show();
-
+                        startActivity(new Intent(MainActivity.this, CalculatorActivity.class));
 
                     }
 
@@ -108,10 +108,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 //google+
-        //   sign_in_button = (SignInButton) findViewById(R.id.sign_in_button);
-        //    sign_in_button.setOnClickListener(this);
-        //   tv_username = (TextView) findViewById(R.id.tv_username);
-
 
         custom_goog_btn = (ImageButton) findViewById(R.id.custom_goog_btn);
 
@@ -134,35 +130,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-   /*     GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-
-        // ATTENTION: This "addApi(AppIndex.API)"was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .addApi(AppIndex.API).build();
-        setGooglePlusButtonText(this.sign_in_button, "Sign in");
-    }
- */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //tw
         client.onActivityResult(requestCode, resultCode, data);
-        startActivity(new Intent(this, CalculatorActivity.class));
+
 
         //g+
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
-
         }
     }
-
-
 
     @Override
     public void onClick(View view) {
@@ -189,14 +169,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          case R.id.custom_goog_btn:
                 if (!isAuthenticated) {
                     signIn();
-                    //this.swign_in_button.setVisibility(View.INVISIBLE);
-             //       setGooglePlusButtonText(this.custom_goog_btn, "Sign out");
+
                 startActivity(new Intent(this, CalculatorActivity.class));
 
                     isAuthenticated = true;
                 } else {
                     signOut();
-            //        setGooglePlusButtonText(this.custom_goog_btn, "Sign in");
+
                     isAuthenticated = false;
                 }
 
@@ -235,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-//            tv_username.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
+
 
         } else {
             // Signed out, show unauthenticated UI.
@@ -245,7 +224,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     protected void setGooglePlusButtonText(SignInButton signInButton, String buttonText) {
-        // Find the TextView that is inside of the SignInButton and set its text
         for (int i = 0; i < signInButton.getChildCount(); i++) {
             View v = signInButton.getChildAt(i);
 
@@ -265,13 +243,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         mGoogleApiClient.connect();
         Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
+                Action.TYPE_VIEW,
+                "Main Page",
                 Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
                 Uri.parse("android-app://com.qoobico.calculator/http/host/path")
         );
         AppIndex.AppIndexApi.start(mGoogleApiClient, viewAction);
@@ -281,16 +255,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onStop() {
         super.onStop();
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
+                Action.TYPE_VIEW,
+                "Main Page",
                 Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
                 Uri.parse("android-app://com.qoobico.calculator/http/host/path")
         );
         AppIndex.AppIndexApi.end(mGoogleApiClient, viewAction);
