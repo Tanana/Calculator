@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.qoobico.calculator.pairs.CalculatePairs;
+
 public class PairsActivity extends Activity implements View.OnClickListener {
 
     EditText etNumForPairs;
@@ -27,6 +29,15 @@ public class PairsActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.btnCalcPairs:
+                tvResPairs.setText(CalculatePairs.getPairs(etNumForPairs.getText().toString()));
+                break;
+
+
+        }
+
 
     }
 }

@@ -24,16 +24,27 @@ public class DbOperations {
         return matcher.find();
     }
 
+private static boolean checkInfo(String login, String password, String email){
+    if(checkLoginAndPassword(login) && checkLoginAndPassword(password) && checkEmail(email)){
+        return true;
+    }else{
+        return false;
+    }
 
+}
     public static int addUser(UserModel user, DbHelper dbHelper) {
 
         ContentValues cv = new ContentValues();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        if (checkLoginAndPassword(user.getLogin()) && checkLoginAndPassword(user.getPassword()) && checkEmail(user.getEmail())) {
-            cv.put("login", user.getLogin());
-            cv.put("password", user.getPassword());
-            cv.put("email", user.getEmail());
-            return (int) db.insert("user", null, cv);
+        if (checkInfo(user.getLogin(), user.getPassword(),user.getEmail())) {
+            if(!checkLoginAndEmail(user,dbHelper)) {
+                cv.put("login", user.getLogin());
+                cv.put("password", user.getPassword());
+                cv.put("email", user.getEmail());
+                return (int) db.insert("user", null, cv);
+            }else{
+                return 0;
+            }
         }
         return 0;
     }
@@ -61,14 +72,15 @@ public class DbOperations {
     }
 
 
-    public static boolean checkLogin(UserModel user, DbHelper dbHelper){
+    public static boolean checkLoginAndEmail(UserModel user, DbHelper dbHelper){
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor c = db.query("user", null, null, null, null, null, null);
         if (c.moveToFirst()) {
             int loginColIndex = c.getColumnIndex("login");
+            int emailColIndex = c.getColumnIndex("email");
             do {
-                if (c.getString(loginColIndex).equals(user.getLogin())) {
+                if (c.getString(loginColIndex).equals(user.getLogin()) || c.getString(emailColIndex).equals(user.getEmail())) {
                     c.close();
                     return true;
                 }

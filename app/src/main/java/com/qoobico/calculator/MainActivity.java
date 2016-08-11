@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tv_username;
    static GoogleApiClient mGoogleApiClient;
     private static final int RC_SIGN_IN = 9001;
-    private boolean isAuthenticated = false;
     SignInButton sign_in_button;
     ImageButton custom_goog_btn;
     DbHelper dbHelper;
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     @Override
                     public void failure(TwitterException e) {
-                        Toast.makeText(MainActivity.this, "failure", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Failure! Install Twitter on your phone. ", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -124,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 signIn();
-                startActivity(new Intent(MainActivity.this, CalculatorActivity.class));
             }
         });
     }
@@ -167,17 +165,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
          case R.id.custom_goog_btn:
-                if (!isAuthenticated) {
                     signIn();
-
-                startActivity(new Intent(this, CalculatorActivity.class));
-
-                    isAuthenticated = true;
-                } else {
-                    signOut();
-
-                    isAuthenticated = false;
-                }
+               //     signOut();
 
                 break;
             case R.id.tvForgPass:
@@ -189,13 +178,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
+Toast.makeText(this,"Check your internet connection",Toast.LENGTH_SHORT).show();
     }
 
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
-        Toast.makeText(this,"You loged in with google+",Toast.LENGTH_SHORT).show();
+
     }
 
     private void signOut() {
@@ -206,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         tv_username.setText("");
                     }
                 });
-        Toast.makeText(this,"You have loged out from google+",Toast.LENGTH_SHORT).show();
+
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
@@ -214,11 +203,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-
+            System.out.println(acct.getFamilyName());
+            System.out.println(acct.getEmail());
+            startActivity(new Intent(MainActivity.this, CalculatorActivity.class));
 
         } else {
-            // Signed out, show unauthenticated UI.
-            // updateUI(false);
+
         }
     }
 

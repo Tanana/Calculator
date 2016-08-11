@@ -14,7 +14,7 @@
         android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:id="@+id/etNumForPairs"
-        android:inputType="numberDecimal">
+        android:inputType="text">
     </EditText>
 
     <Button

@@ -29,7 +29,9 @@ public class FacebookFragment extends Fragment {
         public void onSuccess(LoginResult loginResult) {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
+
       //      displayWelcomeMassage(profile);
+            startActivity(new Intent(getActivity(), CalculatorActivity.class));
 
         }
 
@@ -53,6 +55,7 @@ public class FacebookFragment extends Fragment {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         mcallbackManager = CallbackManager.Factory.create();
+
     }
 
 
@@ -83,8 +86,10 @@ public class FacebookFragment extends Fragment {
             @Override
            public void onClick(View v) {
                 login_button.performClick();
-                Intent redirect=new Intent(getActivity(),CalculatorActivity.class);
-                getActivity().startActivity(redirect);
+            //    Intent redirect=new Intent(getActivity(),CalculatorActivity.class);
+            //    getActivity().startActivity(redirect);
+
+
            }
       });
 
@@ -111,5 +116,6 @@ public class FacebookFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         mcallbackManager.onActivityResult(requestCode, resultCode, data);
+
     }
 }
